@@ -11,6 +11,12 @@ def subtract_products(target, source):
     return True
 
 
+def add_products(target, source):
+    """Subtracts values from dict source, from value if there is enough of them"""
+    for key in target:
+        target[key] += source[key]
+
+
 def check_if_enough(target, source):
     """Check whether target dict have at least as many products as source"""
     for key in target:

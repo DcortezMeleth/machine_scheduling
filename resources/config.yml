@@ -11,4 +11,32 @@ orders:
 logging:
   path: '../logs/flowshop.log'
   format: '%(asctime)s %(message)s'
+layers:
+  - machines:
+    - time_table:
+        1: 2
+        2: 1
+        3: 3
+    - time_table:
+        1: 2
+        2: 1
+        3: 3
+    - time_table:
+        1: 2
+        2: 1
+        3: 3
+  - machines:
+    - time_table:
+        1: 2
+        2: 1
+        3: 3
+  - machines:
+    - time_table:
+        1: 2
+        2: 1
+        3: 3
+    - time_table:
+        1: 2
+        2: 1
+        3: 3
 product_types: 3
