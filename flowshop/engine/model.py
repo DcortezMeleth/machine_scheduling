@@ -1,7 +1,7 @@
 # coding=utf-8
 import numpy
 from flowshop import LOOP_PRODUCT_TYPES_NO, params
-from flowshop.engine import subtract_products
+from flowshop.engine import subtract_products, add_products
 from flowshop.engine.layer import Layer
 from flowshop.engine.machine import Machine
 from flowshop.engine.order import Order
@@ -32,10 +32,16 @@ class Model(object):
 
             self._train()
             self._generate_order()
+            for layer in self.layers:
+                layer.run()
+            self._deliver_orders()
 
         print '------------------------------------------------------'
         print '------------------ EXPERIMENT  STOP ------------------'
         print '------------------------------------------------------'
+
+    def pass_products(self, products):
+        add_products(self.completed, products)
 
     def _train(self):
         pass
@@ -54,7 +60,7 @@ class Model(object):
             return
         order = Order()
         self.waitingOrders.append(order)
-        self.layers[0].add_tasks(order.products)
+        self.layers[0].pass_products(order.products)
         self.nextOrderTurn += numpy.random.poisson() + 1
 
     def _load_conf(self):

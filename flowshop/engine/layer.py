@@ -14,5 +14,8 @@ class Layer(object):
         for i in xrange(1, LOOP_PRODUCT_TYPES_NO):
             self.tasks[i] = 0
 
-    def add_tasks(self, tasks):
-        add_products(self.tasks, tasks)
+    def run(self):
+        pass
+
+    def pass_products(self, products):
+        add_products(self.tasks, products)
