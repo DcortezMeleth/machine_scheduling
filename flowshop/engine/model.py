@@ -11,6 +11,7 @@ __author__ = 'Bartosz Sądel'
 
 class Model(object):
     """Class representing model in our simulation"""
+
     def __init__(self):
         self.nextOrderTurn = 0
         self.turnNo = 0
@@ -23,6 +24,7 @@ class Model(object):
         self._load_conf()
 
     def run(self):
+        """Runs experiment"""
         print '------------------------------------------------------'
         print '------------------ EXPERIMENT START ------------------'
         print '------------------------------------------------------'
@@ -35,18 +37,27 @@ class Model(object):
             for layer in self.layers:
                 layer.run()
             self._deliver_orders()
+            self._orders_tick()
 
         print '------------------------------------------------------'
         print '------------------ EXPERIMENT  STOP ------------------'
         print '------------------------------------------------------'
 
     def pass_products(self, products):
+        """Adds products to completed products buffer"""
         add_products(self.completed, products)
 
+    def _orders_tick(self):
+        """Decreases waiting orders due time"""
+        for order in self.waitingOrders:
+            order.tick()
+
     def _train(self):
+        """Trains classifier"""
         pass
 
     def _deliver_orders(self):
+        """Delivers orders which products are ready"""
         while True:
             order = self.waitingOrders[0]
             if subtract_products(self.completed, order.products):
@@ -56,6 +67,7 @@ class Model(object):
                 break
 
     def _generate_order(self):
+        """Generates order if appropriate turn"""
         if self.turnNo != self.nextOrderTurn:
             return
         order = Order()
@@ -64,6 +76,7 @@ class Model(object):
         self.nextOrderTurn += numpy.random.poisson() + 1
 
     def _load_conf(self):
+        """Loads model configuration from yaml file"""
         for layer in reversed(params['layers']):
             machines = []
             for machine in layer['machines']:

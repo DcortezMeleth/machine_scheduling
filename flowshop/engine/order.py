@@ -32,6 +32,7 @@ def generate_products():
 
 class Order(object):
     """Order in simulation"""
+
     def __init__(self, reward=None, penalty=None, due_time=None, products=None):
         rand = random.Random()
         self.reward = reward if reward else rand.randint(MIN_REWARD, MAX_REWARD)
@@ -41,3 +42,7 @@ class Order(object):
 
     def __str__(self):
         return str(self.products)
+
+    def tick(self):
+        """Decreases due time of an order"""
+        self.due_time -= 1

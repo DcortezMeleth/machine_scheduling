@@ -7,6 +7,7 @@ __author__ = 'Bartosz Sądel'
 
 class Layer(object):
     """Class representing layer in our simulation"""
+
     def __init__(self, machines, next_step):
         self.machines = machines
         self.tasks = {}
@@ -15,7 +16,9 @@ class Layer(object):
             self.tasks[i] = 0
 
     def run(self):
+        """Executes turn across layer"""
         pass
 
     def pass_products(self, products):
+        """Adds products to layer buffer"""
         add_products(self.tasks, products)
