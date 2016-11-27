@@ -53,8 +53,9 @@ class Model(object):
             order.tick()
 
     def _train(self):
-        """Trains classifier"""
-        pass
+        """Trains classifiers in model"""
+        for layer in self.layers:
+            layer.train()
 
     def _deliver_orders(self):
         """Delivers orders which products are ready"""
