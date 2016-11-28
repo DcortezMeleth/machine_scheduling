@@ -13,7 +13,7 @@ orders:
   max_due_time: 40
   #same_value: 1
 logging:
-  path: '../logs/flowshop.log'
+  path: 'logs/flowshop.log'
   format: '%(asctime)s %(message)s'
 layers:
   - machines:

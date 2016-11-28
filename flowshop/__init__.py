@@ -6,7 +6,7 @@ import yaml
 __author__ = 'Bartosz Sądel'
 
 try:
-    params = yaml.safe_load(open('../resources/config.yml'))
+    params = yaml.safe_load(open('resources/config.yml'))
     PRODUCT_TYPES_NO = params['product_types']
     LOOP_PRODUCT_TYPES_NO = PRODUCT_TYPES_NO + 1
 
