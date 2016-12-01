@@ -8,7 +8,6 @@ __author__ = 'Bartosz Sądel'
 try:
     params = yaml.safe_load(open('resources/config.yml'))
     PRODUCT_TYPES_NO = params['product_types']
-    LOOP_PRODUCT_TYPES_NO = PRODUCT_TYPES_NO + 1
 
     logging.basicConfig(format=params['logging']['format'], filename=params['logging']['path'])
 

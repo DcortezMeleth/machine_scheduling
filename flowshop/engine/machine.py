@@ -2,8 +2,7 @@
 import random
 
 from sklearn import tree, neural_network, naive_bayes
-
-from flowshop import params, PRODUCT_TYPES_NO
+from flowshop import params
 
 __author__ = 'Bartosz Sądel'
 

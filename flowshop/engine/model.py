@@ -1,6 +1,6 @@
 # coding=utf-8
 import numpy
-from flowshop import LOOP_PRODUCT_TYPES_NO, params, PRODUCT_TYPES_NO
+from flowshop import params, PRODUCT_TYPES_NO
 from flowshop.engine import subtract_products, add_products
 from flowshop.engine.layer import Layer
 from flowshop.engine.machine import Machine

@@ -1,6 +1,6 @@
 # coding=utf-8
 import random
-from flowshop import LOOP_PRODUCT_TYPES_NO, PRODUCT_TYPES_NO
+from flowshop import PRODUCT_TYPES_NO
 import flowshop
 
 __author__ = 'Bartosz Sądel'
@@ -15,18 +15,16 @@ MAX_DUE_TIME = flowshop.params['orders']['max_due_time']
 
 def generate_products():
     """Generates dict of products in one order based n configuration file"""
-    products = {}
-    for i in xrange(1, LOOP_PRODUCT_TYPES_NO):
-        products[i] = 0
+    products = [0] * PRODUCT_TYPES_NO
     if 'one_type' in flowshop.params['orders'] and flowshop.params['orders']['one_type']:
         if 'same_value' in flowshop.params['orders']:
             value = flowshop.params['orders']['same_value']
         else:
             value = random.randint(1, flowshop.params['orders']['max_value'])
-        products[random.randint(1, PRODUCT_TYPES_NO)] = value
+        products[random.randint(0, PRODUCT_TYPES_NO - 1)] = value
     else:
-        for i in xrange(1, LOOP_PRODUCT_TYPES_NO):
-            products[i] = random.randint(1, flowshop.params['orders']['max_value'])
+        for i in xrange(0, PRODUCT_TYPES_NO):
+            products[i] = random.randint(0, flowshop.params['orders']['max_value'])
     return products
 
 

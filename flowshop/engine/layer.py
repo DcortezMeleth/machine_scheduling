@@ -1,5 +1,5 @@
 # coding=utf-8
-from flowshop import LOOP_PRODUCT_TYPES_NO, PRODUCT_TYPES_NO
+from flowshop import PRODUCT_TYPES_NO
 from flowshop.engine import add_products
 
 __author__ = 'Bartosz Sądel'
