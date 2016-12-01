@@ -2,3 +2,5 @@ numpy
 pip
 pyyaml
 pytest
+scipy
+scikit-learn

@@ -7,9 +7,9 @@ __author__ = 'Bartosz Sądel'
 def main():
     model = Model()
     model._generate_order()
-    print model.waitingOrders
-    print model.nextOrderTurn
-    for layer in model.layers:
+    print model._waitingOrders
+    print model._nextOrderTurn
+    for layer in model._layers:
         print layer, layer.next_step
 
 if __name__ == '__main__':

@@ -3,4 +3,4 @@ from flowshop.engine.model import Model
 
 def test_load_model_from_conf():
     model = Model()
-    assert len(model.layers) == 3
+    assert len(model._layers) == 3

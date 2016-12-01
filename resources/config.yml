@@ -2,6 +2,7 @@ product_types: 3
 turn_no: 500
 break_time: 5
 breaking_chance: 5
+change_time: 4
 orders:
   one_type: True
   max_value: 3
